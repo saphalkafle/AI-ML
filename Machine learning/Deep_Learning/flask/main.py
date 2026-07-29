@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,url_for
 
 app = Flask(__name__,static_folder = "assets",static_url_path = "/assets_new")
 
@@ -10,6 +10,8 @@ def introduction():
 
 @app.route("/login")
 def login():
+    #static file => dynamically generate the url
+    print(url_for"static",filename="style2.css")
     return render_template("login.html")
 
 
