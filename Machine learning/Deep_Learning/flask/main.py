@@ -1,19 +1,25 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template, url_for ,request
 
 app = Flask(__name__,static_folder = "assets",static_url_path = "/assets_new")
 
 @app.route("/")
-
 def introduction():
     return render_template("index.html")
 
 
-@app.route("/login")
+@app.route("/login", methods =["GET","POST"])
 def login():
-    #static file => dynamically generate the url
-    print(url_for"static",filename="style2.css")
-    return render_template("login.html")
+    if request.method == "POST":
 
+        #to individually access both
+        name = request.form["username"]
+        password = request.form["password"]
+        
+        #send ot to database and verify
+        return f"<p> Welcome {name}! </p>"
+    else:
+        return render_template("login.html")
+        
 
 if __name__ == "__main__":
     app.run(debug=True)
