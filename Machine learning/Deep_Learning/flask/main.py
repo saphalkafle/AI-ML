@@ -4,7 +4,11 @@ app = Flask(__name__,static_folder = "assets",static_url_path = "/assets_new")
 
 @app.route("/")
 def introduction():
-    return render_template("index.html")
+    name = request.args.get("name",default = "anonymous")
+    subject = request.args.get("subject")
+    print(name)
+    print(subject)
+    return render_template("index.html",name=name,subject=subject)
 
 
 @app.route("/login", methods =["GET","POST"])
