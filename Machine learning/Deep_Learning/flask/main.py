@@ -18,9 +18,10 @@ def login():
         #to individually access both
         name = request.form["username"]
         password = request.form["password"]
-        
+        friends = ["ram","hari","sita"]
+        header = "<header>My personal website</header>"
         #send ot to database and verify
-        return f"<p> Welcome {name}! </p>"
+        return render_template("welcome.html",name=name , password=password,friends=friends,header = header)
     else:
         return render_template("login.html")
         
@@ -30,7 +31,7 @@ def api_json():
         "message":"Welcome to the platform"
     }
 
-    return jsonify(data)
+    return jsonify(data) , 200
 
 
 if __name__ == "__main__":
