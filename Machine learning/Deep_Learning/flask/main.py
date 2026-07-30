@@ -8,7 +8,7 @@ def introduction():
     subject = request.args.get("subject")
     print(name)
     print(subject)
-    return render_template("index.html",name=name,subject=subject)
+    return render_template("basic/ind.html",name=name,subject=subject)
 
 
 @app.route("/login", methods =["GET","POST"])
