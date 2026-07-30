@@ -1,4 +1,4 @@
-from flask import Flask,render_template, url_for ,request
+from flask import Flask,render_template, url_for ,request,jsonify
 
 app = Flask(__name__,static_folder = "assets",static_url_path = "/assets_new")
 
@@ -24,6 +24,14 @@ def login():
     else:
         return render_template("login.html")
         
+@app.route("/aj")
+def api_json():
+    data = {
+        "message":"Welcome to the platform"
+    }
+
+    return jsonify(data)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
