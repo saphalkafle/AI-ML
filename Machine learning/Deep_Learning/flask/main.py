@@ -1,6 +1,8 @@
-from flask import Flask,render_template, url_for ,request,jsonify
+from flask import Flask,render_template, url_for ,request,jsonify,flash,redirect
 
 app = Flask(__name__,static_folder = "assets",static_url_path = "/assets_new")
+
+app.secret_key = "for flash"
 
 @app.route("/")
 def introduction():
@@ -8,7 +10,11 @@ def introduction():
     subject = request.args.get("subject")
     print(name)
     print(subject)
+
+    #message flashing
+    flash("support timings are from 9-5")
     return render_template("basic/ind.html",name=name,subject=subject)
+    return redirect(url_for("login"))
 
 
 @app.route("/login", methods =["GET","POST"])
