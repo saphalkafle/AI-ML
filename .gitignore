@@ -9,3 +9,4 @@ cnn_for_cat_dog.ipynb
 PetImages/
 .env
 datasets/
+img_align_celeba/
