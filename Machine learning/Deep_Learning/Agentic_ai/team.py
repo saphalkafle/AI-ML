@@ -19,7 +19,7 @@ team_leader = Team(
     show_members_responses=True,
     instructions="""All member agents must responf to answer the query in their specific language.
                          Do not route just one agent
-                         Output the response of all agents"""
+                         Output the response of all agents. """
 )
 
 team_leader.print_response("why do people switch their gender?")
